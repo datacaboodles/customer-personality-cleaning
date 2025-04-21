@@ -31,7 +31,7 @@ The dataset contains 2,240 records and 29 features including:
 
 ## 🔍 My Step-by-Step Approach
 
-### 🔹 Part 1: Initial Data Exploration
+## Part 1: Initial Data Exploration
 - Loaded the CSV file using `pandas.read_csv()` with a tab (`\t`) separator
 - Inspected the shape, column names, and sample rows
 - Used `.info()` and `.describe()` to assess data types, nulls, and distributions
@@ -41,53 +41,44 @@ The dataset contains 2,240 records and 29 features including:
   - A possible outlier (`Income = 666666`)
   - All column names were in mixed case with underscores
 
-### 🔹 Part 2: Data Cleaning
+## Part 2: Data Cleaning
 
-# ✅ 1. Renamed Columns
+### ✅ 1. Renamed Columns
 Converted all column names to lowercase and removed spacing issues for consistency:
 df.columns.str.lower().str.replace(" ", "_")
 
-# ✅ 2. Handled Missing Values
+### ✅ 2. Handled Missing Values
 Filled missing values in the income column using the median income, which is robust to outliers.
 
-✅ 3. Converted Date Format
+### ✅ 3. Converted Date Format
 Converted the dt_customer column from object to proper datetime format using:
-
-python
-Copy
-Edit
 pd.to_datetime(..., dayfirst=True)
-✅ 4. Standardized Categorical Variables
+
+### ✅ 4. Standardized Categorical Variables
 Grouped inconsistent categories:
 
 "2n Cycle" in education → grouped under "Master"
 
 "YOLO", "Absurd", "Alone" in marital_status → grouped under "Single"
 
-✅ 5. Removed Outliers
+### ✅ 5. Removed Outliers
 Dropped the one row with an unrealistic income of 666666.
 
-📊 Final Cleaned Dataset
+## 📊 Final Cleaned Dataset
 ✅ 0 missing values
-
 ✅ Consistent and meaningful categories
-
 ✅ Clean and analysis-ready column names
-
 ✅ Proper date format
-
 ✅ Outliers removed
 
 Cleaned file saved as: marketing_campaign_cleaned.csv
 
-🛠️ Tools Used
+## 🛠️ Tools Used
 Python 3
-
 Jupyter Notebook
-
 Pandas
 
-📈 What I Learned
+## 📈 What I Learned
 1. Hands-on experience with real-world data imperfections
 2. Practical use of pandas for identifying and resolving data quality issues
 3. How to structure a cleaning workflow from raw data to cleaned output
